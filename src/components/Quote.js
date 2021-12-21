@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.css';
 import RefreshButton from './RefreshButton';
 import React, { useState, useEffect } from 'react';
 
@@ -11,24 +11,7 @@ function Quote() {
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
-        fetch("http://localhost:3002/qod", {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setIsLoaded(true);
-                    setItems(result);
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
+        GetRandomQuote()
     }, [])
 
     if (error) {
@@ -66,7 +49,7 @@ function Quote() {
     }
 
     function GetRandomQuote() {
-        fetch("http://localhost:3002/qod", {
+        fetch("https://apr-backend.herokuapp.com/qod", {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })

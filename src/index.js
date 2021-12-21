@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import RefreshButton from './RefreshButton';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
