@@ -1,6 +1,8 @@
 import '../App.css';
 import RefreshButton from './RefreshButton';
 import React, { useState, useEffect } from 'react';
+const be_url = "https://apr-backend.herokuapp.com/qod";
+// const be_url = "http://localhost:3002/qod";
 
 function Quote() {
     const [error, setError] = useState(null);
@@ -16,7 +18,9 @@ function Quote() {
 
     if (error) {
         return <div>
-            Error: {error.message}
+            {/* Error: {error.message} */}
+            Duh &#128534; kayaknya servernya lagi gangguan, bentar yakk tunggu beberapa saat lagi! &#128517;
+            <br/> <br/>
             <RefreshButton
                 onClick={GetRandomQuote}
             /></div>;
@@ -49,7 +53,7 @@ function Quote() {
     }
 
     function GetRandomQuote() {
-        fetch("https://apr-backend.herokuapp.com/qod", {
+        fetch(be_url, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })
